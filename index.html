@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body ng-app="TodoApp">
+  <section ng-controller="TodoCtrl">
+    <h1>{{ title }}</h1>
+  <div>
+    <input type="text" ng-model="macaroni" />
+    <div> {{ macaroni }} </div>
+  </div>
+  <div>
+      <ul class="todo-list" ng-repeat="todo in todos">
+       <li>{{ todo.name }}
+         <button ng-click="killTodo(todo)">Finish</button>
+       </li> 
+      </ul>
+    </div> 
+  <div>
+    <input type="text" ng-model="newTodo"/>
+    <button ng-click="addTodo()">Create</button>
+  </div>
+  </section>
+  <section ng-controller="SongCtrl">
+    <div>
+      <ul class="todo-list" ng-repeat="song in songs">
+       <li>
+         <h1>{{song.album.name}} <small>({{song.album.year}})</small></h1> 
+         <h3>{{song.artist}}</h3>
+         <p>{{song.title}}</p>
+         <button ng-click="killSong(song)">Finish</button>
+       </li> 
+      </ul>
+    </div> 
+    <div>
+    <input type="text" ng-model="newSong.title"/>
+    <input type="text" ng-model="newSong.artist"/>
+    <input type="text" ng-model="newSong.album.name"/>
+    <input type="text" ng-model="newSong.album.year"/>
+    <button ng-click="addSong()">Create</button>
+  </div>
+  </section>
+  <script src="lib/bower_components/angular/angular.min.js"></script>
+  <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/controller/Todo.js"></script>
+  <script src="app/controller/Song.js"></script>
+</body>
+</html>
